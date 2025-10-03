@@ -14,10 +14,10 @@ This code serves as a PoC for the sensor integration.
 
 The project focused on building a full stack embedded solution for omnidirectional depth perception under severe size constraints
 
-* **dual sensor SPI Management:** Developed low level firmware utilizing the ST Ultra Lite Driver (ULD) to reliably manage and poll **two** VL53L8CX sensors simultaneously over the ESP32's shared SPI bus, using dedicated Chip Select lines to enable high-speed, dual-sensor ranging (approx. 15 Hz combined).
-* **real time 3D point cloud transformation:** Achieved high speed conversion of the raw 8x8 distance matrices (64 points per sensor) into a unified **global XYZ coordinate system** by applying pre-calibrated rotation and translation matrices. This is essential for accurate spatial interpretation by downstream avoidance algorithms.
-* **sector based proximity control:** Implemented a low latency control loop that analyzes the Left/Right depth sectors of the combined FOV and translates perceived proximity directly into a proportional motor speed decrease via a Serial CLI interface. This demonstrates the feasibility of closed-loop avoidance control.
-* **high bandwidth telemetry stack:** Established the ESP32 as a WiFi Access Point for streaming the full, raw XYZ depth data (point cloud) over a dedicated **TCP socket** (Port 8080), which is critical for real-time external visualization, debugging, and external algorithm development.
+* **sensor SPI Management:** Custom low level ULD firmware polls **two** VL53L8CX sensors simultaneously over the shared ESP32 SPI bus (using dedicated Chip Selects) to achieve a consistent **~15 Hz dual-sensor ranging rate**.
+* **Real time 3D point cloud:** High speed conversion of the raw 8x8 distance matrices (128 total points) into a unified **global XYZ coordinate system** using pre calibrated transformation matrices.
+* **Sector based proximity control:** Implemented a low latency control loop that analyzes Left/Right depth sectors and translates proximity directly into a proportional motor speed decrease via Serial CLI.
+* **High bandwidth telemetry:** The ESP32 operates as a WiFi AP, streaming the full, raw XYZ point cloud data over a dedicated **TCP socket (Port 8080)** for real time external visualization and debugging.
 
 ## 3. Initial configuration
 
