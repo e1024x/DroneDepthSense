@@ -1,5 +1,5 @@
 # Drone depth sense
-![screenshot](drone_screenshot.png)
+![screenshot](screenshot_drone.png)
 ## 1. What is this?
 
 This is embedded C++ firmware, written for the ESP32 (Arduino) platform. Its primary function is to process ranging data from two VL53L8CX Time-of-Flight (ToF) sensors for rudimentary proximity based collision avoidance.
@@ -56,7 +56,7 @@ System parameters and hardware pins must be defined in `main.cpp`.
 
 ---
 
-![screenshot](drone_screenshot_2.png)
+![screenshot](screenshot_drone_2.png)
 
 
 ## 6. To Do / Future Work
